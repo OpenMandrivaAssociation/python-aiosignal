@@ -1,6 +1,5 @@
-# Created by pyp2rpm-3.3.5
 %global module aiosignal
-%bcond_without tests
+%bcond tests 1
 
 Name:		python-%{module}
 Version:	1.4.0
@@ -38,23 +37,23 @@ rm -rf %{module}.egg-info
 sed -i '21,29d' pytest.ini
 
 %build
-%py3_build
+%py_build
 # remove the sphinx-build leftovers
 rm -rf html/.{doctrees,buildinfo}
 
 %install
-%py3_install
+%py_install
 
 %if %{with tests}
 %check
 export CI=true
 export PYTHONPATH="%{buildroot}%{python_sitearch}:${PWD}"
-%{__python} -m pytest -v
+pytest -v
 %endif
 
 %files -n python-%{module}
-%{python3_sitelib}/%{module}
-%{python3_sitelib}/%{module}-%{version}.dist-info
+%{python_sitelib}/%{module}
+%{python_sitelib}/%{module}-%{version}.dist-info
 %license LICENSE
 %doc README.rst
 
