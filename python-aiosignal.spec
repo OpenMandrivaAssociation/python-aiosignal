@@ -3,7 +3,7 @@
 
 Name:		python-%{module}
 Version:	1.4.0
-Release:	2
+Release:	3
 Summary:	aiosignal: a list of registered asynchronous callbacks
 Group:		Development/Python
 License:	Apache-2.0
@@ -12,7 +12,7 @@ Source0:	https://files.pythonhosted.org/packages/source/a/%{module}/%{module}-%{
 BuildArch:	noarch
 
 BuildRequires:	python
-BuildRequires:	pkgconfig(python)
+BuildRequires:	pkgconfig(python3)
 BuildRequires:	python%{pyver}dist(setuptools)
 BuildRequires:	python%{pyver}dist(wheel)
 BuildRequires:	python%{pyver}dist(pip)
